@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>Slider</title>
+        <style>
+            /* 초기화 */
+            ul {margin: 0; padding: 0;}
+            li {list-style: none;}
+            /* 전체 감싸기 */
+            #wrap {
+                width: 800px; margin: 0 auto; border: 1px solid rgb(153, 0, 255);
+                text-align: center;
+                position: relative;
+                padding: 50px;
+            }
+            /* 이미지 리스트를 감싸고 있는 div */
+            #imgWrap {width: 512px; overflow: hidden; margin: 0 auto;}
+            /* 이미지 리스트 ul */
+            #imgList {width: 3584px;}
+            #imgList li {
+                width: 512px; height: 512px;
+                /* background-color: burlywood; */
+                float: left;
+            }
+            /* < > 클릭 */
+            #dirWrap {}
+            #dirWrap a {position: absolute; bottom: 300px; width: 64px; height: 64px;}
+            #dirWrap a:first-child {background-image: url(image2/arrowSLeft.png); left: 50px;}
+            #dirWrap a:last-child {background-image: url(image2/arrowSRight.png); right: 50px;}
+            /* 해당 bullet 선택 시 해당 이미지로 슬라이드 */
+            #bulletWrap {
+                display: flex; flex-flow: row nowrap;
+                justify-content: center;
+            }
+            #bulletWrap a {
+                display: block; width: 20px; height: 20px; margin: 30px 10px 0;
+                background-image: url(image2/bullet20_b.png);
+                transition-duration: 0.5s;
+            }
+            #bulletWrap a:hover {background-image: url(image2/bullet20.png);}
+        </style>
+    </head>
+    <body>
+        <section id="wrap">
+            <div id="imgWrap">
+                <ul id="imgList">
+                    <li>0</li>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                </ul>
+            </div>
+            <div id="dirWrap">
+                <a href="#"></a>
+                <a href="#"></a>
+            </div>
+            <div id="bulletWrap">
+                <a href="image2/ironMan.png"></a> <!-- 0 -->
+                <a href="image2/jake.png"></a> <!-- 1 -->
+                <a href="image2/koya.png"></a> <!-- 2 -->
+                <a href="image2/mummy.png"></a> <!-- 3 -->
+                <a href="image2/scream.png"></a> <!-- 4 -->
+                <a href="image2/spongebob.png"></a> <!-- 5 -->
+                <a href="image2/superMario.png"></a> <!-- 6 -->
+            </div>
+        </section>
+        <script src="common.js"></script>
+    </body>
+</html>
+<!-- 
+    숙제
+    좌, 우 버튼 눌렀을 경우 좌, 우로 슬라이드
+    혹은 시간이 어느정도 지나면 우로 슬라이드
+    밑에 번호 클릭하면 해당 이미지로 슬라이드
+ -->

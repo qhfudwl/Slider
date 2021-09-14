@@ -7,6 +7,7 @@ const bullets = document.querySelectorAll("#bulletWrap a")
 let liWidth = list[0].offsetWidth;
 // console.log(liWidth)
 // console.log(wrap, imgWrap, imgList, list, dir, bullets)
+let timer = setInterval(moveLeft, 3000)
 let imgNames = [
     "image2/ironMan.png",
     "image2/jake.png",
@@ -31,8 +32,11 @@ let num = 0;
 // setTimeout(1) margin = 0px transition-duration=0.5s
 dir[0].onclick = function () {
     moveRight();
+    clearInterval(timer);
+        setTimeout(function() {
+            timer = setInterval(moveLeft, 3000)
+        }, 3000)
 }
-setInterval(moveLeft, 3000)
 function moveRight() {
     imgList.style.marginLeft = "-" + liWidth + "px"
     imgList.style.transitionDuration = "0s"
@@ -50,6 +54,10 @@ function moveRight() {
 // setTimeout(500) margin = 0px transition-duration=0s list[0] 이 가장 뒤로
 dir[1].onclick = function () {
     moveLeft();
+    clearInterval(timer);
+    setTimeout(function() {
+        timer = setInterval(moveLeft, 3000)
+    }, 3000)
 }
 function moveLeft() {
     imgList.style.marginLeft = "-" + liWidth + "px"
@@ -83,6 +91,10 @@ function bulletOn() {
 for (let b=0; b<bullets.length; b++) {
     bullets[b].onclick = function(e) {
         e.preventDefault();
+        clearInterval(timer);
+        setTimeout(function() {
+            timer = setInterval(moveLeft, 3000)
+        }, 3000)
         moveImg(b);
     }
 }

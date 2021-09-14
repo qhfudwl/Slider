@@ -5,9 +5,10 @@ const list = document.querySelectorAll("#imgList li")
 const dir = document.querySelectorAll("#dirWrap a")
 const bullets = document.querySelectorAll("#bulletWrap a")
 let liWidth = list[0].offsetWidth;
+let timer;
 // console.log(liWidth)
 // console.log(wrap, imgWrap, imgList, list, dir, bullets)
-let timer = setInterval(moveLeft, 3000)
+timer = setInterval(moveLeft, 4000);
 let imgNames = [
     "image2/ironMan.png",
     "image2/jake.png",
@@ -33,9 +34,7 @@ let num = 0;
 dir[0].onclick = function () {
     moveRight();
     clearInterval(timer);
-        setTimeout(function() {
-            timer = setInterval(moveLeft, 3000)
-        }, 3000)
+    timer = setInterval(moveLeft, 4000);
 }
 function moveRight() {
     imgList.style.marginLeft = "-" + liWidth + "px"
@@ -55,9 +54,7 @@ function moveRight() {
 dir[1].onclick = function () {
     moveLeft();
     clearInterval(timer);
-    setTimeout(function() {
-        timer = setInterval(moveLeft, 3000)
-    }, 3000)
+    timer = setInterval(moveLeft, 4000);
 }
 function moveLeft() {
     imgList.style.marginLeft = "-" + liWidth + "px"
@@ -92,9 +89,7 @@ for (let b=0; b<bullets.length; b++) {
     bullets[b].onclick = function(e) {
         e.preventDefault();
         clearInterval(timer);
-        setTimeout(function() {
-            timer = setInterval(moveLeft, 3000)
-        }, 3000)
+        timer = setInterval(moveLeft, 4000);
         moveImg(b);
     }
 }

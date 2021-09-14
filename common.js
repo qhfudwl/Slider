@@ -30,6 +30,10 @@ let num = 0;
 // margin -liWidth px 이동 transition-duration=0s list[6] 이 가장 앞으로
 // setTimeout(1) margin = 0px transition-duration=0.5s
 dir[0].onclick = function () {
+    moveRight();
+}
+setInterval(moveLeft, 3000)
+function moveRight() {
     imgList.style.marginLeft = "-" + liWidth + "px"
     imgList.style.transitionDuration = "0s"
     if (num == 0) num = 7;
@@ -45,6 +49,9 @@ dir[0].onclick = function () {
 // margin -liWidth px 이동 transition-duration=0.5s
 // setTimeout(500) margin = 0px transition-duration=0s list[0] 이 가장 뒤로
 dir[1].onclick = function () {
+    moveLeft();
+}
+function moveLeft() {
     imgList.style.marginLeft = "-" + liWidth + "px"
     imgList.style.transitionDuration = "0.5s"
     setTimeout(function() {
